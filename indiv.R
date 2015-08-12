@@ -21,12 +21,14 @@ indiv<-function(simu){
   # EVHR = matrix(c(1,2,3,4), nrow=1, ncol=4, byrow=FALSE) # temp for testing script errors before I figure ode out
   # t = matrix(c(1), nrow=1, ncol=1, byrow=FALSE) # temp for testing script errors before I figure ode out
   
+  library(deSolve)
+  
   par = simu$par
   tc = simu$t0 # set current time to initial time
   EVHR_tc = simu$EVHR_init # set current values of state variables to initial values
   
   cnames = c("t","E","V","H","R")
-  tEVHR = matrix(0, nrow=1, ncol=5, byrow=FALSE, dimnames=list("",cnames)) # initialize outputs
+  tEVHR = matrix(numeric(0), nrow=1, ncol=5, byrow=FALSE, dimnames=list("",cnames)) # initialize outputs
   i = 0 # initialize year index
   while (tc < simu$tm){
     i = i + 1 # spawning every year
@@ -45,5 +47,6 @@ indiv<-function(simu){
     EVHR_tc = tail(EVHR, n=1)[2:5]
     tc = tail(t, n=1)
   }
+  tEVHR=tEVHR[2:dim(tEVHR)[1],]
   return(tEVHR)
 }
