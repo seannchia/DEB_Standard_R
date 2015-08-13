@@ -28,6 +28,10 @@ source("set_par.R")
 source("indiv.R")
 source("flux.R")
 source("get_obs.R")
+source("food.R")
+source("fnfourier.R")
+source("get_plots.R")
+
 
 # Remove all variables and parameters from the workspace, leaving functions
 rm(list = setdiff(ls(), lsf.str()))
@@ -42,5 +46,5 @@ simu$tEVHR<-indiv(simu)
 simu$obs<-get_obs(simu)
 
 ## 4 - make plots
-  # get_plots(simu)
+get_plots(simu)
 

@@ -22,13 +22,13 @@ init <- function(){
   
   # color for plots
   if (envT == 1 && envX == 1){
-    col = 'k'
+    col = 'black'
   } else if (envT ==2 && envX == 1){
-    col = 'b'
+    col = 'blue'
   } else if (envT == 1 && envX == 2){
-    col = 'g'
+    col = 'green'
   } else{
-    col = 'r'
+    col = 'red'
   }
   
   # initial forcing variable
