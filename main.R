@@ -11,7 +11,7 @@
 # simu : structure with individual features and model predictions
 #
 # calls :   init.m
-#           indiv.m
+#           
 #           food.m, temp.m
 #           get_obs.m, get_plots
 #
@@ -19,19 +19,10 @@
 #---------------------------------------------------------------  
 
 rm(list=ls()) # Clear the workspace of everything
-
-# scriptdir = dirname(sys.frame(1)$ofile) # Get script's working directory
-# source(file.path(scriptdir,"sourceDir.R"), chdir = TRUE) # Load the script to load all the R functions in the directory
-# sourceDir(scriptdir, trace=FALSE) # Run the function to load all the functions in the directory
-source("init.R")
-source("set_par.R")
-source("indiv.R")
-source("flux.R")
-source("get_obs.R")
-source("food.R")
-source("fnfourier.R")
-source("get_plots.R")
-
+scriptdir = dirname(sys.frame(1)$ofile) # Get script's working directory
+source(file.path(scriptdir,"sourceDir.R"), chdir = TRUE) # Load the script to load all the R functions in the directory
+sourceDir(scriptdir, trace=FALSE) # Run the function to load all the functions in the directory
+ 
 
 # Remove all variables and parameters from the workspace, leaving functions
 rm(list = setdiff(ls(), lsf.str()))
